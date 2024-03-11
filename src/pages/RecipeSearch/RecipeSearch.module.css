@@ -1,0 +1,33 @@
+.resultContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+}
+
+.recipeCard > img {
+  width: 200px;
+}
+
+.recipeCard {
+  margin: 20px;
+  width: 250px;
+  height: 300px;
+  border: 3px solid cornflowerblue;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+button {
+  border: none;
+  background-color: salmon;
+  font-size: 20px;
+  width: 100px;
+  height: 30px;
+  margin-left: 15px;
+  border-radius: 8px;
+}

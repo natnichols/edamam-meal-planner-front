@@ -4,6 +4,9 @@ import { useState } from "react"
 // services
 import * as recipeService from '../../services/recipeService'
 
+// css
+import styles from './RecipeSearch.module.css'
+
 const RecipeSearch = () => {
   const [formData, setFormData] = useState({
     query: ''
@@ -20,7 +23,7 @@ const RecipeSearch = () => {
     try {
       // MAKE API CALL USING STATE
       const data = await recipeService.recipeSearch(formData)
-      console.log(data)
+      setResults(data)
       // SET RESULTS WITH RETURNED DATA
     } catch (error) {
       console.log(error)
@@ -34,6 +37,19 @@ const RecipeSearch = () => {
         <input type="text" name="query" onChange={handleChange} />
         <button type="submit">Search</button>
       </form>
+      {
+        results.length ?
+        <div className={styles.resultContainer}>
+          {results.map(recipe =>
+            <div key={recipe.recipe.uri} className={styles.recipeCard}>
+              <img src={recipe.recipe.image} alt="" />
+              <h3>{recipe.recipe.label}</h3>
+            </div>
+          )}
+        </div>
+        :
+        <h2>Search for a recipe!</h2>
+      }
     </>
   )
 }
