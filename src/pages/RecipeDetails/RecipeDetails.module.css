@@ -1,0 +1,11 @@
+.recipeContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.ingredientDisplay {
+  width: 200px;
+  height: 60px;
+}
