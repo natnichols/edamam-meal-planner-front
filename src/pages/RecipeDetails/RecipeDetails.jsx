@@ -32,6 +32,8 @@ const RecipeDetails = () => {
         <h1>{recipe.label}</h1>
         <img src={recipe.images.REGULAR.url} alt="Image of this recipe" />
         <a href={recipe.url}>Instructions</a>
+        <h3>Calories: {Math.floor(recipe.calories)}</h3>
+        <h3>Prep Time: {Math.floor(recipe.totalTime)} min</h3>
         <h3>Feeds: {recipe.yield}</h3>
         <button onClick={handleToggleIngredientDisplay} className={styles.ingredientDisplay}>{displayIngredients ? 'Hide' : 'Show'} Ingredients</button>
         {displayIngredients && 
