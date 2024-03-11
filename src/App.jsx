@@ -8,6 +8,10 @@ import Login from './pages/Login/Login'
 import Landing from './pages/Landing/Landing'
 import Profiles from './pages/Profiles/Profiles'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
+import ShoppingList from './pages/ShoppingList/ShoppingList'
+import RecipeDetails from './pages/RecipeDetails/RecipeDetails'
+import RecipeIndex from './pages/RecipeIndex/RecipeIndex'
+import RecipeSearch from './pages/RecipeSearch/RecipeSearch'
 
 // components
 import NavBar from './components/NavBar/NavBar'
@@ -37,6 +41,13 @@ function App() {
     <>
       <NavBar user={user} handleLogout={handleLogout} />
       <Routes>
+        <Route path="/" element={<Landing user={user} />} />
+        <Route path="/recipes" element={<RecipeIndex />} />
+        <Route path="/recipes/:edamamId" element={<RecipeDetails />} />
+        <Route path="/recipes/search" element={<RecipeSearch />} />
+        <Route path="/shopping" element={<ShoppingList />} />
+
+        <Route path="/" element={<Landing user={user} />} />
         <Route path="/" element={<Landing user={user} />} />
         <Route
           path="/profiles"
