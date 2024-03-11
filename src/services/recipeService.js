@@ -31,3 +31,19 @@ export async function recipeDetails(id) {
     throw new Error(err)
   }
 }
+
+export async function addRecipe(recipeData) {
+  try {
+    const res = await fetch(`${BASE_URL}`, {
+      method: 'POST',
+      headers: { 
+        'Authorization': `Bearer ${tokenService.getToken()}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(recipeData)
+    })
+    return await res.json()
+  } catch (err) {
+    throw new Error(err)
+  }
+}
