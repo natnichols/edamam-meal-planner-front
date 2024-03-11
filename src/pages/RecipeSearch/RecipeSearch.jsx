@@ -43,7 +43,7 @@ const RecipeSearch = () => {
         <div className={styles.resultContainer}>
           {results.map(recipe =>
             <NavLink to={`/recipes/${recipe.recipe.uri.replace(`http://www.edamam.com/ontologies/edamam.owl#recipe_`, '')}`} key={recipe.recipe.uri} >
-              {/* http://www.edamam.com/ontologies/edamam.owl#recipe_b79327d05b8e5b838ad6cfd9576b30b6 */}
+              {/* http://www.edamam.com/ontologies/edamam.owl#recipe_ */}
               <div className={styles.recipeCard}>
                 <img src={recipe.recipe.image} alt="" />
                 <h3>{recipe.recipe.label}</h3>

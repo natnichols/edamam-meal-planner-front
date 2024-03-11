@@ -1,6 +1,8 @@
+// npm modules
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 
+// services
 import * as recipeService from '../../services/recipeService'
 
 
