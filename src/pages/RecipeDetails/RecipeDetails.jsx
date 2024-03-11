@@ -28,8 +28,14 @@ const RecipeDetails = (props) => {
 
   const handleSaveRecipe = () => {
     // run function passed down as prop
-    console.log('Hello')
     props.handleAddRecipe({title: recipe.label, edamamId: edamamId})
+  }
+
+  const handleAddIngredient = () => {
+    props.handleAddToShoppingList({
+      ingredients: recipe.ingredientLines,
+      edamamId: edamamId
+    })
   }
 
   return ( 
@@ -50,12 +56,25 @@ const RecipeDetails = (props) => {
             <button onClick={handleSaveRecipe} className={styles.saveRecipe}>Save Recipe</button>
           }
         </div>
+        
         {displayIngredients && 
-          <ul>
-            {recipe.ingredientLines.map(ingredient => 
-              <li key={ingredient}>{ingredient}</li>
-            )}
-          </ul>
+          <>
+            <ul>
+              {recipe.ingredientLines.map(ingredient => 
+                <li key={ingredient}>{ingredient}</li>
+              )}
+            </ul>
+            {
+              props.profile.recipes.some(rec => rec.edamamId === edamamId)
+              &&
+              <button 
+                className={styles.ingredientButton}
+                onClick={handleAddIngredient}
+              >
+                Add to Shopping List
+              </button>
+            }
+          </>
         }
       </div>
     :

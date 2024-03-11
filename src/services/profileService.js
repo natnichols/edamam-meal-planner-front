@@ -43,4 +43,20 @@ async function addPhoto(photoData) {
   }
 }
 
-export { getAllProfiles, getUserProfile ,addPhoto }
+async function addToShoppingList(ingredientData) {
+  try {
+    const res = await fetch(`${BASE_URL}/add-ingredients`, {
+      method: 'POST',
+      headers: { 
+        'Authorization': `Bearer ${tokenService.getToken()}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(ingredientData)
+    })
+    return await res.json()
+  } catch (err) {
+    throw new Error(err)
+  }
+}
+
+export { getAllProfiles, getUserProfile, addPhoto, addToShoppingList }

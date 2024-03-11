@@ -10,6 +10,12 @@
   height: 60px;
 }
 
+.ingredientButton {
+  width: 200px;
+  height: 60px;
+  background-color: lightblue;
+}
+
 .saveRecipe {
   background-color: rgb(155, 199, 155);
   width: 200px;
