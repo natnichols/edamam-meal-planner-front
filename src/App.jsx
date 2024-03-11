@@ -62,7 +62,7 @@ function App() {
       <NavBar user={user} handleLogout={handleLogout} />
       <Routes>
         <Route path="/" element={<Landing user={user} />} />
-        <Route path="/recipes" element={<RecipeIndex />} />
+        <Route path="/recipes" element={<RecipeIndex profile={profile} />} />
         <Route path="/recipes/:edamamId" element={
           <RecipeDetails 
             profile={profile} 
