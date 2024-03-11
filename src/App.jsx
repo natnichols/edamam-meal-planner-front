@@ -62,6 +62,7 @@ function App() {
     const updatedProfile = await profileService.addToShoppingList(ingredientData)
     // update profile state
     setProfile(updatedProfile)
+    navigate('/shopping')
   }
 
   return (
@@ -78,7 +79,7 @@ function App() {
           />}
         />
         <Route path="/recipes/search" element={<RecipeSearch />} />
-        <Route path="/shopping" element={<ShoppingList />} />
+        <Route path="/shopping" element={<ShoppingList profile={profile} />} />
 
         <Route path="/" element={<Landing user={user} />} />
         <Route path="/" element={<Landing user={user} />} />
