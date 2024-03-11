@@ -1,5 +1,6 @@
 // modules
 import { useState } from "react"
+import { NavLink } from "react-router-dom"
 
 // services
 import * as recipeService from '../../services/recipeService'
@@ -41,10 +42,13 @@ const RecipeSearch = () => {
         results.length ?
         <div className={styles.resultContainer}>
           {results.map(recipe =>
-            <div key={recipe.recipe.uri} className={styles.recipeCard}>
-              <img src={recipe.recipe.image} alt="" />
-              <h3>{recipe.recipe.label}</h3>
-            </div>
+            <NavLink to={`/recipes/${recipe.recipe.uri.replace(`http://www.edamam.com/ontologies/edamam.owl#recipe_`, '')}`} key={recipe.recipe.uri} >
+              {/* http://www.edamam.com/ontologies/edamam.owl#recipe_b79327d05b8e5b838ad6cfd9576b30b6 */}
+              <div className={styles.recipeCard}>
+                <img src={recipe.recipe.image} alt="" />
+                <h3>{recipe.recipe.label}</h3>
+              </div>
+            </NavLink>
           )}
         </div>
         :
